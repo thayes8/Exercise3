@@ -16,42 +16,8 @@ output:
 
 ```r
 library(tidyverse)     # for graphing and data cleaning
-```
-
-```
-## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──
-```
-
-```
-## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-## ✓ tibble  3.1.6     ✓ dplyr   1.0.7
-## ✓ tidyr   1.1.4     ✓ stringr 1.4.0
-## ✓ readr   2.1.1     ✓ forcats 0.5.1
-```
-
-```
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()
-```
-
-```r
 library(gardenR)       # for Lisa's garden data
 library(lubridate)     # for date manipulation
-```
-
-```
-## 
-## Attaching package: 'lubridate'
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     date, intersect, setdiff, union
-```
-
-```r
 library(ggthemes)      # for even more plotting themes
 library(geofacet)      # for special faceting with US map layout
 theme_set(theme_minimal())       # My favorite ggplot() theme :)
@@ -70,86 +36,11 @@ data("garden_planting")
 
 # Tidy Tuesday dog breed data
 breed_traits <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-02-01/breed_traits.csv')
-```
-
-```
-## Rows: 195 Columns: 17
-```
-
-```
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: ","
-## chr  (3): Breed, Coat Type, Coat Length
-## dbl (14): Affectionate With Family, Good With Young Children, Good With Othe...
-```
-
-```
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-```
-
-```r
 trait_description <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-02-01/trait_description.csv')
-```
-
-```
-## Rows: 16 Columns: 4
-```
-
-```
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: ","
-## chr (4): Trait, Trait_1, Trait_5, Description
-```
-
-```
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-```
-
-```r
 breed_rank_all <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2022/2022-02-01/breed_rank.csv')
-```
 
-```
-## Rows: 195 Columns: 11
-```
-
-```
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: ","
-## chr (3): Breed, links, Image
-## dbl (8): 2013 Rank, 2014 Rank, 2015 Rank, 2016 Rank, 2017 Rank, 2018 Rank, 2...
-```
-
-```
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-```
-
-```r
 # Tidy Tuesday data for challenge problem
 kids <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-15/kids.csv')
-```
-
-```
-## Rows: 23460 Columns: 6
-```
-
-```
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: ","
-## chr (2): state, variable
-## dbl (4): year, raw, inf_adj, inf_adj_perchild
-```
-
-```
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
 ## Setting up on GitHub!
@@ -200,10 +91,6 @@ garden_harvest %>%
               values_from = total_weight)
 ```
 
-```
-## `summarise()` has grouped output by 'vegetable'. You can override using the `.groups` argument.
-```
-
 <div data-pagedtable="false">
   <script data-pagedtable-source type="application/json">
 {"columns":[{"label":["vegetable"],"name":[1],"type":["chr"],"align":["left"]},{"label":["Sat"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Mon"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Tue"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Thu"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["Fri"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["Sun"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["Wed"],"name":[8],"type":["dbl"],"align":["right"]}],"data":[{"1":"apple","2":"0.34392072","3":"NA","4":"NA","5":"NA","6":"NA","7":"NA","8":"NA"},{"1":"asparagus","2":"0.04409240","3":"NA","4":"NA","5":"NA","6":"NA","7":"NA","8":"NA"},{"1":"basil","2":"0.41005932","3":"0.0661386","4":"0.11023100","5":"0.02645544","6":"0.46737944","7":"NA","8":"NA"},{"1":"beans","2":"4.70906832","3":"6.5080382","4":"4.38719380","5":"3.39291018","6":"1.52559704","7":"1.91361016","8":"4.08295624"},{"1":"beets","2":"0.37919464","3":"0.6724091","4":"0.15873264","5":"11.89172028","6":"0.02425082","7":"0.32187452","8":"0.18298346"},{"1":"broccoli","2":"NA","3":"0.8201186","4":"NA","5":"NA","6":"0.16534650","7":"1.25883802","8":"0.70768302"},{"1":"carrots","2":"2.33028334","3":"0.8708249","4":"0.35273920","5":"2.67420406","6":"2.13848140","7":"2.93655384","8":"5.56225626"},{"1":"chives","2":"NA","3":"NA","4":"NA","5":"NA","6":"NA","7":"NA","8":"0.01763696"},{"1":"cilantro","2":"0.03747854","3":"NA","4":"0.00440924","5":"NA","6":"0.07275246","7":"NA","8":"NA"},{"1":"corn","2":"1.31615814","3":"0.7583893","4":"0.72752460","5":"NA","6":"3.44802568","7":"1.45725382","8":"5.30211110"},{"1":"cucumbers","2":"9.64080326","3":"4.7752069","4":"10.04645334","5":"3.30693000","6":"7.42956940","7":"3.10410496","8":"5.30652034"},{"1":"edamame","2":"4.68922674","3":"NA","4":"1.40213832","5":"NA","6":"NA","7":"NA","8":"NA"},{"1":"hot peppers","2":"NA","3":"1.2588380","4":"0.14109568","5":"NA","6":"NA","7":"NA","8":"0.06834322"},{"1":"jalapeño","2":"1.50796008","3":"5.5534378","4":"0.54895038","5":"0.22487124","6":"1.29411194","7":"0.26234978","8":"0.48060716"},{"1":"kale","2":"1.49032312","3":"2.0679336","4":"0.28219136","5":"0.27998674","6":"0.38139926","7":"0.82673250","8":"0.61729360"},{"1":"kohlrabi","2":"NA","3":"NA","4":"NA","5":"0.42108242","6":"NA","7":"NA","8":"NA"},{"1":"lettuce","2":"1.31615814","3":"2.4581513","4":"0.91712192","5":"2.45153744","6":"1.80117454","7":"1.46607230","8":"1.18608556"},{"1":"onions","2":"1.91361016","3":"0.5092672","4":"0.70768302","5":"0.60186126","6":"0.07275246","7":"0.26014516","8":"NA"},{"1":"peas","2":"2.85277828","3":"4.6341112","4":"2.06793356","5":"3.39731942","6":"0.93696350","7":"2.05691046","8":"1.08026380"},{"1":"peppers","2":"1.38229674","3":"2.5264945","4":"1.44402610","5":"0.70988764","6":"0.33510224","7":"0.50265336","8":"2.44271896"},{"1":"potatoes","2":"2.80207202","3":"0.9700328","4":"NA","5":"11.85203712","6":"3.74124014","7":"NA","8":"4.57017726"},{"1":"pumpkins","2":"92.68883866","3":"30.1195184","4":"31.85675900","5":"NA","6":"NA","7":"NA","8":"NA"},{"1":"radish","2":"0.23148510","3":"0.1962112","4":"0.09479866","5":"0.14770954","6":"0.19400656","7":"0.08157094","8":"NA"},{"1":"raspberries","2":"0.53351804","3":"0.1300726","4":"0.33510224","5":"0.28880522","6":"0.57099658","7":"NA","8":"NA"},{"1":"rutabaga","2":"6.89825598","3":"NA","4":"NA","5":"NA","6":"3.57809826","7":"19.26396956","8":"NA"},{"1":"spinach","2":"0.26014516","3":"0.1477095","4":"0.49603950","5":"0.23368972","6":"0.19621118","7":"0.48722102","8":"0.21384814"},{"1":"squash","2":"56.22221924","3":"24.3345956","4":"18.46810174","5":"NA","6":"NA","7":"NA","8":"NA"},{"1":"strawberries","2":"0.16975574","3":"0.4784025","4":"NA","5":"0.08818480","6":"0.48722102","7":"0.08157094","8":"NA"},{"1":"Swiss chard","2":"0.73413846","3":"1.0736499","4":"0.07054784","5":"2.23107544","6":"0.61729360","7":"1.24781492","8":"0.90830344"},{"1":"tomatoes","2":"35.12621046","3":"11.4926841","4":"48.75076206","5":"34.51773534","6":"85.07628580","7":"75.60964752","8":"58.26590198"},{"1":"zucchini","2":"3.41495638","3":"12.1959578","4":"16.46851140","5":"34.63017096","6":"18.72163304","7":"12.23564100","8":"2.04147812"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
@@ -252,11 +139,8 @@ garden_harvest %>%
   group_by(first_harvest_date, variety) %>%
   summarize(total_harvest_in_lbs = sum(weight *0.00220462)) %>%
   ggplot(aes(x = fct_reorder(variety, first_harvest_date), y = total_harvest_in_lbs)) +
-  geom_col()
-```
-
-```
-## `summarise()` has grouped output by 'first_harvest_date'. You can override using the `.groups` argument.
+  geom_col() +
+  labs(x = "variety")
 ```
 
 ![](03_exercises_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
@@ -316,26 +200,9 @@ Here is the code to read in the data. We do this a little differently than usual
 
 ```r
 data_site <- 
-  "https://www.macalester.edu/~dshuman1/data/112/2014-Q4-Trips-History-Data-Small.rds" 
+  "https://www.macalester.edu/~dshuman1/data/112/2014-Q4-Trips-History-Data.rds" 
 Trips <- readRDS(gzcon(url(data_site)))
 Stations<-read_csv("http://www.macalester.edu/~dshuman1/data/112/DC-Stations.csv")
-```
-
-```
-## Rows: 347 Columns: 5
-```
-
-```
-## ── Column specification ────────────────────────────────────────────────────────
-## Delimiter: ","
-## chr (1): name
-## dbl (4): lat, long, nbBikes, nbEmptyDocks
-```
-
-```
-## 
-## ℹ Use `spec()` to retrieve the full column specification for this data.
-## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 ```
 
 **NOTE:** The `Trips` data table is a random subset of 10,000 trips from the full quarterly data. Start with this small data table to develop your analysis commands. **When you have this working well, you should access the full data set of more than 600,000 events by removing `-Small` from the name of the `data_site`.**
@@ -477,15 +344,28 @@ Trips %>%
                       guide = "colorbar")
 ```
 
-```
-## Warning: Removed 11 rows containing missing values (geom_point).
-```
-
 ![](03_exercises_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
   
   16. Only 14.4% of the trips in our data are carried out by casual users. Create a plot that shows which area(s) have stations with a much higher percentage of departures by casual users. What patterns do you notice? (Again, we'll improve this next week when we learn about maps).
   
 
+```r
+Trips %>%
+  filter(client %in% c("Casual")) %>%
+  left_join(Stations, by = c("sstation" = "name")) %>%
+  group_by(sstation) %>%
+  summarize(station_count = n()) %>%
+  left_join(Stations, by = c("sstation" = "name")) %>%
+  ggplot(aes(x = long, y = lat, color = station_count)) +
+  geom_point() +
+  scale_color_gradient(low = "#353436",
+                      high = "#f6f805",
+                      guide = "colorbar")
+```
+
+![](03_exercises_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
+  The highest casual usage is concentrated in a small geographical area. But it appears most stations are also concentrated around that area as well.
+  
   
 **DID YOU REMEMBER TO GO BACK AND CHANGE THIS SET OF EXERCISES TO THE LARGER DATASET? IF NOT, DO THAT NOW.**
 
@@ -496,24 +376,94 @@ In this section, we'll use the data from 2022-02-01 Tidy Tuesday. If you didn't 
   17. The final product of this exercise will be a graph that has breed on the y-axis and the sum of the numeric ratings in the `breed_traits` dataset on the x-axis, with a dot for each rating. First, create a new dataset called `breed_traits_total` that has two variables -- `Breed` and `total_rating`. The `total_rating` variable is the sum of the numeric ratings in the `breed_traits` dataset (we'll use this dataset again in the next problem). Then, create the graph just described. Omit Breeds with a `total_rating` of 0 and order the Breeds from highest to lowest ranked. You may want to adjust the `fig.height` and `fig.width` arguments inside the code chunk options (eg. `{r, fig.height=8, fig.width=4}`) so you can see things more clearly - check this after you knit the file to assure it looks like what you expected.
 
 
+```r
+#tempDataset <- breed_traits %>%
+  #a = c(2:7) %>%
+  #b = c(9:17)
+breed_traits_total <-breed_traits %>%
+  mutate(rating1 = rowSums(breed_traits[, c(2:7) ])) %>%
+  mutate(rating2 = rowSums(breed_traits[, c(10:17) ])) %>%
+  group_by(Breed) %>%
+  summarize(total_rating = sum(rating1, rating2)) %>%
+  filter(total_rating != 0)%>%
+  arrange(desc(total_rating))
+
+  breed_traits_total %>%
+  ggplot(aes(x = total_rating, y = fct_reorder(Breed, total_rating))) +
+  geom_col()
+```
+
+![](03_exercises_files/figure-html/unnamed-chunk-17-1.png)<!-- -->
+
+```r
+  breed_traits_total
+```
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["total_rating"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Keeshonden","2":"60"},{"1":"Portuguese Water Dogs","2":"58"},{"1":"Retrievers (Labrador)","2":"58"},{"1":"Papillons","2":"57"},{"1":"Retrievers (Flat-Coated)","2":"57"},{"1":"Shetland Sheepdogs","2":"57"},{"1":"German Shepherd Dogs","2":"56"},{"1":"Poodles","2":"56"},{"1":"Setters (Irish)","2":"56"},{"1":"Vizslas","2":"56"},{"1":"Bernese Mountain Dogs","2":"55"},{"1":"Leonbergers","2":"55"},{"1":"Miniature American Shepherds","2":"55"},{"1":"Miniature Schnauzers","2":"55"},{"1":"Pointers (German Shorthaired)","2":"55"},{"1":"Samoyeds","2":"55"},{"1":"Treeing Walker Coonhounds","2":"55"},{"1":"Weimaraners","2":"55"},{"1":"Wirehaired Pointing Griffons","2":"55"},{"1":"Yorkshire Terriers","2":"55"},{"1":"Border Collies","2":"54"},{"1":"Doberman Pinschers","2":"54"},{"1":"Pyrenean Shepherds","2":"54"},{"1":"Rat Terriers","2":"54"},{"1":"Russell Terriers","2":"54"},{"1":"Siberian Huskies","2":"54"},{"1":"Staffordshire Bull Terriers","2":"54"},{"1":"West Highland White Terriers","2":"54"},{"1":"Wirehaired Vizslas","2":"54"},{"1":"Dogo Argentinos","2":"53"},{"1":"English Foxhounds","2":"53"},{"1":"Fox Terriers (Wire)","2":"53"},{"1":"Giant Schnauzers","2":"53"},{"1":"Harriers","2":"53"},{"1":"Havanese","2":"53"},{"1":"Icelandic Sheepdogs","2":"53"},{"1":"Retrievers (Golden)","2":"53"},{"1":"Setters (Irish Red and White)","2":"53"},{"1":"Welsh Terriers","2":"53"},{"1":"Bearded Collies","2":"52"},{"1":"Greater Swiss Mountain Dogs","2":"52"},{"1":"Newfoundlands","2":"52"},{"1":"Old English Sheepdogs","2":"52"},{"1":"Pembroke Welsh Corgis","2":"52"},{"1":"Petits Bassets Griffons Vendeens","2":"52"},{"1":"Retrievers (Nova Scotia Duck Tolling)","2":"52"},{"1":"Standard Schnauzers","2":"52"},{"1":"Toy Fox Terriers","2":"52"},{"1":"Bichons Frises","2":"51"},{"1":"Finnish Spitz","2":"51"},{"1":"Grand Basset Griffon Vendeens","2":"51"},{"1":"Miniature Pinschers","2":"51"},{"1":"Norfolk Terriers","2":"51"},{"1":"Norwegian Elkhounds","2":"51"},{"1":"Norwich Terriers","2":"51"},{"1":"Pointers","2":"51"},{"1":"Polish Lowland Sheepdogs","2":"51"},{"1":"Setters (English)","2":"51"},{"1":"Setters (Gordon)","2":"51"},{"1":"Spaniels (Cocker)","2":"51"},{"1":"Spaniels (English Cocker)","2":"51"},{"1":"Spaniels (English Springer)","2":"51"},{"1":"Chinooks","2":"50"},{"1":"Dalmatians","2":"50"},{"1":"Dogues de Bordeaux","2":"50"},{"1":"French Bulldogs","2":"50"},{"1":"Pugs","2":"50"},{"1":"Pulik","2":"50"},{"1":"Redbone Coonhounds","2":"50"},{"1":"Swedish Vallhunds","2":"50"},{"1":"American Eskimo Dogs","2":"49"},{"1":"Boxers","2":"49"},{"1":"Collies","2":"49"},{"1":"Coton de Tulear","2":"49"},{"1":"Dachshunds","2":"49"},{"1":"Entlebucher Mountain Dogs","2":"49"},{"1":"Finnish Lapphunds","2":"49"},{"1":"Great Danes","2":"49"},{"1":"Pointers (German Wirehaired)","2":"49"},{"1":"Portuguese Podengo Pequenos","2":"49"},{"1":"Pumik","2":"49"},{"1":"Sealyham Terriers","2":"49"},{"1":"Spaniels (Field)","2":"49"},{"1":"Australian Shepherds","2":"48"},{"1":"Black Russian Terriers","2":"48"},{"1":"Boston Terriers","2":"48"},{"1":"Brittanys","2":"48"},{"1":"Cardigan Welsh Corgis","2":"48"},{"1":"English Toy Spaniels","2":"48"},{"1":"Fox Terriers (Smooth)","2":"48"},{"1":"Nederlandse Kooikerhondjes","2":"48"},{"1":"Parson Russell Terriers","2":"48"},{"1":"Retrievers (Chesapeake Bay)","2":"48"},{"1":"Rhodesian Ridgebacks","2":"48"},{"1":"Rottweilers","2":"48"},{"1":"Shih Tzu","2":"48"},{"1":"Silky Terriers","2":"48"},{"1":"Spaniels (Boykin)","2":"48"},{"1":"Spaniels (Welsh Springer)","2":"48"},{"1":"Spanish Water Dogs","2":"48"},{"1":"St. Bernards","2":"48"},{"1":"Tibetan Spaniels","2":"48"},{"1":"Beagles","2":"47"},{"1":"Black and Tan Coonhounds","2":"47"},{"1":"Boerboels","2":"47"},{"1":"Cavalier King Charles Spaniels","2":"47"},{"1":"German Pinschers","2":"47"},{"1":"Ibizan Hounds","2":"47"},{"1":"Italian Greyhounds","2":"47"},{"1":"Kuvaszok","2":"47"},{"1":"Lagotti Romagnoli","2":"47"},{"1":"Manchester Terriers","2":"47"},{"1":"Miniature Bull Terriers","2":"47"},{"1":"Otterhounds","2":"47"},{"1":"Schipperkes","2":"47"},{"1":"Scottish Terriers","2":"47"},{"1":"Spaniels (Sussex)","2":"47"},{"1":"Tibetan Terriers","2":"47"},{"1":"Australian Terriers","2":"46"},{"1":"Basset Hounds","2":"46"},{"1":"Bloodhounds","2":"46"},{"1":"Brussels Griffons","2":"46"},{"1":"Kerry Blue Terriers","2":"46"},{"1":"Lowchen","2":"46"},{"1":"Mastiffs","2":"46"},{"1":"Norwegian Buhunds","2":"46"},{"1":"Pharaoh Hounds","2":"46"},{"1":"Retrievers (Curly-Coated)","2":"46"},{"1":"American Foxhounds","2":"45"},{"1":"Border Terriers","2":"45"},{"1":"Bouviers des Flandres","2":"45"},{"1":"Bulldogs","2":"45"},{"1":"Great Pyrenees","2":"45"},{"1":"Soft Coated Wheaten Terriers","2":"45"},{"1":"Spaniels (Irish Water)","2":"45"},{"1":"Tibetan Mastiffs","2":"45"},{"1":"Alaskan Malamutes","2":"44"},{"1":"American Hairless Terriers","2":"44"},{"1":"Barbets","2":"44"},{"1":"Belgian Malinois","2":"44"},{"1":"Belgian Sheepdogs","2":"44"},{"1":"Belgian Tervuren","2":"44"},{"1":"Bluetick Coonhounds","2":"44"},{"1":"Bullmastiffs","2":"44"},{"1":"Canaan Dogs","2":"44"},{"1":"Cane Corso","2":"44"},{"1":"Komondorok","2":"44"},{"1":"Lhasa Apsos","2":"44"},{"1":"Pomeranians","2":"44"},{"1":"Spaniels (Clumber)","2":"44"},{"1":"Spinoni Italiani","2":"44"},{"1":"Whippets","2":"44"},{"1":"Affenpinschers","2":"43"},{"1":"Beaucerons","2":"43"},{"1":"Cesky Terriers","2":"43"},{"1":"Chinese Shar-Pei","2":"43"},{"1":"Dandie Dinmont Terriers","2":"43"},{"1":"Irish Terriers","2":"43"},{"1":"Irish Wolfhounds","2":"43"},{"1":"Japanese Chin","2":"43"},{"1":"Lakeland Terriers","2":"43"},{"1":"Maltese","2":"43"},{"1":"Pekingese","2":"43"},{"1":"Shiba Inu","2":"43"},{"1":"Xoloitzcuintli","2":"43"},{"1":"American Staffordshire Terriers","2":"42"},{"1":"Bull Terriers","2":"42"},{"1":"Cairn Terriers","2":"42"},{"1":"Glen of Imaal Terriers","2":"42"},{"1":"Skye Terriers","2":"42"},{"1":"American English Coonhounds","2":"41"},{"1":"Australian Cattle Dogs","2":"41"},{"1":"Berger Picards","2":"41"},{"1":"Chihuahuas","2":"41"},{"1":"Chinese Crested","2":"41"},{"1":"Chow Chows","2":"41"},{"1":"Greyhounds","2":"41"},{"1":"Neapolitan Mastiffs","2":"41"},{"1":"Airedale Terriers","2":"40"},{"1":"Bedlington Terriers","2":"40"},{"1":"Cirnechi dell’Etna","2":"40"},{"1":"Salukis","2":"40"},{"1":"Scottish Deerhounds","2":"40"},{"1":"Spaniels (American Water)","2":"40"},{"1":"Akitas","2":"39"},{"1":"Borzois","2":"39"},{"1":"Briards","2":"39"},{"1":"Norwegian Lundehunds","2":"39"},{"1":"Afghan Hounds","2":"38"},{"1":"Sloughis","2":"37"},{"1":"Anatolian Shepherd Dogs","2":"36"},{"1":"Basenjis","2":"36"},{"1":"Bergamasco Sheepdogs","2":"36"},{"1":"Azawakhs","2":"33"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
 
   18. The final product of this exercise will be a graph with the top-20 dogs in total ratings (from previous problem) on the y-axis, year on the x-axis, and points colored by each breed's ranking for that year (from the `breed_rank_all` dataset). The points within each breed will be connected by a line, and the breeds should be arranged from the highest median rank to lowest median rank ("highest" is actually the smallest numer, eg. 1 = best). After you're finished, think of AT LEAST one thing you could you do to make this graph better. HINTS: 1. Start with the `breed_rank_all` dataset and pivot it so year is a variable. 2. Use the `separate()` function to get year alone, and there's an extra argument in that function that can make it numeric. 3. For both datasets used, you'll need to `str_squish()` Breed before joining. 
   
 
+```r
+breed_traits_total <- breed_traits_total %>%
+  head(20)%>%
+  mutate(Breed = str_squish(Breed))
+  breed_traits_total 
+```
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source type="application/json">
+{"columns":[{"label":["Breed"],"name":[1],"type":["chr"],"align":["left"]},{"label":["total_rating"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Keeshonden","2":"60"},{"1":"Portuguese Water Dogs","2":"58"},{"1":"Retrievers (Labrador)","2":"58"},{"1":"Papillons","2":"57"},{"1":"Retrievers (Flat-Coated)","2":"57"},{"1":"Shetland Sheepdogs","2":"57"},{"1":"German Shepherd Dogs","2":"56"},{"1":"Poodles","2":"56"},{"1":"Setters (Irish)","2":"56"},{"1":"Vizslas","2":"56"},{"1":"Bernese Mountain Dogs","2":"55"},{"1":"Leonbergers","2":"55"},{"1":"Miniature American Shepherds","2":"55"},{"1":"Miniature Schnauzers","2":"55"},{"1":"Pointers (German Shorthaired)","2":"55"},{"1":"Samoyeds","2":"55"},{"1":"Treeing Walker Coonhounds","2":"55"},{"1":"Weimaraners","2":"55"},{"1":"Wirehaired Pointing Griffons","2":"55"},{"1":"Yorkshire Terriers","2":"55"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+
+```r
+breed_rank_all %>%
+  pivot_longer(cols = "2013 Rank":"2020 Rank",
+               names_to = "years",
+               values_to = "rank") %>%
+  separate(col = years, into = c("year")) %>%
+  mutate(Breed = str_squish(Breed)) %>%
+  group_by(Breed) %>%
+  mutate(median_rank = median(rank)) %>%
+  right_join(breed_traits_total, by = c("Breed")) %>%
+   ggplot(aes(x = year, y = fct_reorder(Breed, median_rank, .desc = TRUE), color = rank)) +
+   geom_point() + 
+   geom_line()
+```
+
+![](03_exercises_files/figure-html/unnamed-chunk-18-1.png)<!-- -->
   
   19. Create your own! Requirements: use a `join` or `pivot` function (or both, if you'd like), a `str_XXX()` function, and a `fct_XXX()` function to create a graph using any of the dog datasets. One suggestion is to try to improve the graph you created for the Tidy Tuesday assignment. If you want an extra challenge, find a way to use the dog images in the `breed_rank_all` file - check out the `ggimage` library and [this resource](https://wilkelab.org/ggtext/) for putting images as labels.
   
 
+```r
+rank_and_traits <- merge(breed_traits, breed_rank_all, by=("Breed"))
+rank_and_traits %>%
+  ggplot(aes(x=`2020 Rank`, y = `Good With Other Dogs`, color = `Good With Other Dogs`)) +
+  geom_point() +
+  labs(caption = "by Tommy Hayes", title = "Do Better Ranked Dog Show Breeds Behave Better with Other Dogs?")
+```
+
+![](03_exercises_files/figure-html/unnamed-chunk-19-1.png)<!-- -->
   
 ## GitHub link
 
   20. Below, provide a link to your GitHub page with this set of Weekly Exercises. Specifically, if the name of the file is 03_exercises.Rmd, provide a link to the 03_exercises.md file, which is the one that will be most readable on GitHub.
 
+[link](https://github.com/thayes8/Exercise3/blob/main/03_exercises.md)
 ## Challenge problem! 
 
 This problem uses the data from the Tidy Tuesday competition this week, `kids`. If you need to refresh your memory on the data, read about it [here](https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-09-15/readme.md). 
 
   21. In this exercise, you are going to try to replicate the graph below, created by Georgios Karamanis. I'm sure you can find the exact code on GitHub somewhere, but **DON'T DO THAT!** You will only be graded for putting an effort into this problem. So, give it a try and see how far you can get without doing too much googling. HINT: use `facet_geo()`. The graphic won't load below since it came from a location on my computer. So, you'll have to reference the original html on the moodle page to see it.
+  
+  
+  I elect to forgo this question, despite the consequences. Lo siento, pero estoy terminado.
   
 
 **DID YOU REMEMBER TO UNCOMMENT THE OPTIONS AT THE TOP?**
